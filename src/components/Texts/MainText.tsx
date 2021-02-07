@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { useFrame } from 'react-three-fiber';
 import type { Group } from 'three';
 
@@ -17,7 +17,9 @@ export default function MainText() {
 
   return (
     <group ref={ref}>
-      <Text position={[0, 0, 0]} children="MAJI" />
+      <Suspense fallback={null}>
+        <Text position={[0, 0, 0]} children="MAJI" />
+      </Suspense>
     </group>
   );
 }

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Canvas } from 'react-three-fiber';
 
@@ -8,9 +8,7 @@ import Lights from './components/Lights';
 ReactDOM.render(
   <Canvas camera={{ position: [0, 0, 35] }}>
     <Lights />
-    <Suspense fallback={null}>
-      <Home />
-    </Suspense>
+    <Home />
   </Canvas>,
   document.getElementById('root')
 );
