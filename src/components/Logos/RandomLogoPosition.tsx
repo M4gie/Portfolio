@@ -14,8 +14,6 @@ export default function RandomLogoPosition({ logo }: { logo: string }) {
   const rotationY = HeadsOrTails();
   const rotationZ = HeadsOrTails();
 
-  console.log(rotationX, rotationZ, rotationZ);
-
   return (
     <Suspense fallback={null}>
       <Logo
