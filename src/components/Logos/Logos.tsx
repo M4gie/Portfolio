@@ -29,7 +29,7 @@ export default function Logos() {
   useEffect(() => {
     interval.current = setInterval(() => {
       const randomLogoName = getRandomLogoName();
-      const newLogo = RandomLogoPosition({ logo: randomLogoName });
+      const newLogo = <RandomLogoPosition logo={randomLogoName} key={new Date().getTime()} />;
       setLogos((logos) => [...logos, newLogo]);
     }, 1000);
   }, []);

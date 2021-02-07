@@ -5,17 +5,21 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 interface LogoProps extends SceneProps {
   url: string;
+  rotationX: number;
+  rotationY: number;
+  rotationZ: number;
 }
 
-export default function Logo({ url, ...props }: LogoProps) {
+export default function Logo({ url, rotationX, rotationY, rotationZ, ...props }: LogoProps) {
   const { nodes, materials } = useLoader(GLTFLoader, url);
   const group = useRef<Group>();
 
   useFrame((_state, delta) => {
     if (!group.current) return;
-    group.current.rotation.y += Math.sin((delta * 0.5) / 2) * Math.cos((delta * 0.5) / 2) * 1.5;
-    group.current.rotation.x += 0.01;
-    group.current.rotation.z += 0.01;
+    group.current.rotation.y +=
+      Math.sin((delta * 0.5) / 2) * Math.cos((delta * 0.5) / 2) * 1 * rotationX;
+    group.current.rotation.x += 0.005 * rotationX;
+    group.current.rotation.z += 0.005 * rotationZ;
   });
 
   return (
