@@ -13,9 +13,9 @@ export default function MeText() {
         <meshBasicMaterial color="white" />
       </ReliefText>
       <ReliefText
-        position={[-1.8, 0.2, -5]}
+        position={[-2, 0.2, -5]}
         textParams={{ size: fonts.size.md, height: 1 }}
-        text="Full Stack Developper">
+        text="Full Stack Developer">
         <meshBasicMaterial color="white" />
       </ReliefText>
     </>

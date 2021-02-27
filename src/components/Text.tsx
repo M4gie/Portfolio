@@ -9,7 +9,7 @@ interface TextProps extends MeshProps {
 }
 
 export default function ReliefText({ text, textParams, children, ...props }: TextProps) {
-  const font = useLoader(THREE.FontLoader, '/inter.json');
+  const font = useLoader(THREE.FontLoader, '/font.json');
   const config = useMemo<TextGeometryParameters>(
     () => ({
       ...textParams,
