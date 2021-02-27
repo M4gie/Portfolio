@@ -1,4 +1,4 @@
-import React, { Suspense, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { MeshProps, useLoader } from 'react-three-fiber';
 import * as THREE from 'three';
 import { TextGeometryParameters } from 'three';
@@ -8,7 +8,7 @@ interface TextProps extends MeshProps {
   textParams: Omit<TextGeometryParameters, 'font'>;
 }
 
-function Text({ text, textParams, children, ...props }: TextProps) {
+export default function ReliefText({ text, textParams, children, ...props }: TextProps) {
   const font = useLoader(THREE.FontLoader, '/inter.json');
   const config = useMemo<TextGeometryParameters>(
     () => ({
@@ -23,13 +23,5 @@ function Text({ text, textParams, children, ...props }: TextProps) {
       <textBufferGeometry args={[text, config]} />
       {children}
     </mesh>
-  );
-}
-
-export default function ReliefText(props: TextProps) {
-  return (
-    <Suspense fallback={null}>
-      <Text {...props} />
-    </Suspense>
   );
 }

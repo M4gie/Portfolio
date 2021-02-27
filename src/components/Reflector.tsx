@@ -1,8 +1,8 @@
 import { Reflector, useTexture } from '@react-three/drei';
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Vector2 } from 'three';
 
-function ReflectorScene() {
+export default function ReflectorPlain() {
   const roughness = useTexture('roughness_floor.jpeg');
   const normal = useTexture('NORM.jpg');
   const distortionMap = useTexture('dist_map.jpeg');
@@ -36,13 +36,5 @@ function ReflectorScene() {
         />
       )}
     </Reflector>
-  );
-}
-
-export default function ReflectorPlain() {
-  return (
-    <Suspense fallback={null}>
-      <ReflectorScene />
-    </Suspense>
   );
 }

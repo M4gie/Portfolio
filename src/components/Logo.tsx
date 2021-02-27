@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { MeshProps, useLoader } from 'react-three-fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
@@ -7,7 +7,7 @@ interface LogoProps extends MeshProps {
   color: string;
 }
 
-function LogoLoader({ url, color, ...props }: LogoProps) {
+export default function Logo({ url, color, ...props }: LogoProps) {
   const { nodes, materials } = useLoader(GLTFLoader, url);
 
   return (
@@ -20,13 +20,5 @@ function LogoLoader({ url, color, ...props }: LogoProps) {
       {...props}>
       <meshBasicMaterial color={color} />
     </mesh>
-  );
-}
-
-export default function Logo(props: LogoProps) {
-  return (
-    <Suspense fallback={null}>
-      <LogoLoader {...props} />
-    </Suspense>
   );
 }
