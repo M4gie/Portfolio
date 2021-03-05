@@ -16,7 +16,7 @@ function Loader() {
 }
 
 ReactDOM.render(
-  <Canvas camera={{ position: [-10, 3, 10], fov: 60 }}>
+  <Canvas camera={{ position: [-10, 3, 10], fov: 60 }} pixelRatio={[1, 2]}>
     <Suspense fallback={<Loader />}>
       <color attach="background" args={[0, 0, 0]} />
       <Lights />
