@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   content: {
+    experimental: { sqliteConnector: 'native' },
     build: {
       transformers: [
         '~/transformers/blog-slug.ts',
