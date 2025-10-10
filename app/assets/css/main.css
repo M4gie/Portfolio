@@ -1,0 +1,241 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/* Pastel Design System */
+@layer base {
+	:root {
+		/* Pastel Color Palette */
+		--pastel-rose: 255 228 230;
+		--pastel-rose-light: 255 242 244;
+		--pastel-rose-dark: 251 207 232;
+		
+		--pastel-blue: 224 242 254;
+		--pastel-blue-light: 239 246 255;
+		--pastel-blue-dark: 186 230 253;
+		
+		--pastel-purple: 243 232 255;
+		--pastel-purple-light: 250 245 255;
+		--pastel-purple-dark: 233 213 255;
+		
+		--pastel-green: 220 252 231;
+		--pastel-green-light: 236 253 245;
+		--pastel-green-dark: 187 247 208;
+		
+		--pastel-yellow: 254 249 195;
+		--pastel-yellow-light: 254 252 232;
+		--pastel-yellow-dark: 253 230 138;
+		
+		--pastel-orange: 255 237 213;
+		--pastel-orange-light: 255 247 237;
+		--pastel-orange-dark: 254 215 170;
+		
+		--pastel-mint: 209 250 229;
+		--pastel-mint-light: 236 253 245;
+		--pastel-mint-dark: 167 243 208;
+		
+		--pastel-lavender: 237 233 254;
+		--pastel-lavender-light: 245 243 255;
+		--pastel-lavender-dark: 221 214 254;
+		
+		/* Neutral Colors */
+		--pastel-background: 250 250 250;
+		--pastel-surface: 255 255 255;
+		--pastel-text-primary: 30 41 59;
+		--pastel-text-secondary: 100 116 139;
+		--pastel-text-tertiary: 148 163 184;
+		--pastel-border: 226 232 240;
+		
+		/* Spacing & Sizing */
+		--spacing-xs: 0.5rem;
+		--spacing-sm: 0.75rem;
+		--spacing-md: 1rem;
+		--spacing-lg: 1.5rem;
+		--spacing-xl: 2rem;
+		--spacing-2xl: 3rem;
+		
+		/* Border Radius */
+		--radius-sm: 0.5rem;
+		--radius-md: 0.75rem;
+		--radius-lg: 1rem;
+		--radius-xl: 1.5rem;
+		--radius-2xl: 2rem;
+		--radius-full: 9999px;
+		
+		/* Shadows */
+		--shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.04);
+		--shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.06);
+		--shadow-large: 0 8px 32px rgba(0, 0, 0, 0.08);
+		
+		/* Typography */
+		--font-size-xs: 0.75rem;
+		--font-size-sm: 0.875rem;
+		--font-size-base: 1rem;
+		--font-size-lg: 1.125rem;
+		--font-size-xl: 1.25rem;
+		--font-size-2xl: 1.5rem;
+		--font-size-3xl: 1.875rem;
+		--font-size-4xl: 2.25rem;
+		--font-size-5xl: 3rem;
+		--font-size-6xl: 3.75rem;
+	}
+
+	html { 
+		color-scheme: light dark;
+		scroll-behavior: smooth;
+	}
+	
+	body {
+		@apply bg-[rgb(var(--pastel-background))] text-[rgb(var(--pastel-text-primary))];
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		letter-spacing: -0.011em;
+	}
+}
+
+@layer components {
+	/* Cards */
+	.pastel-card {
+		@apply bg-white dark:bg-gray-900 rounded-[var(--radius-xl)] p-6;
+		@apply border border-[rgb(var(--pastel-border))]/30;
+		@apply transition-all duration-300;
+		box-shadow: var(--shadow-soft);
+	}
+	
+	.pastel-card:hover {
+		box-shadow: var(--shadow-medium);
+	}
+	
+	/* Buttons */
+	.pastel-btn-rose {
+		@apply bg-[rgb(var(--pastel-rose))] hover:bg-[rgb(var(--pastel-rose-dark))];
+		@apply text-[rgb(var(--pastel-text-primary))] font-medium;
+		@apply rounded-[var(--radius-full)] px-6 py-2.5;
+		@apply transition-all duration-200;
+		@apply border border-[rgb(var(--pastel-rose-dark))]/30;
+	}
+	
+	.pastel-btn-blue {
+		@apply bg-[rgb(var(--pastel-blue))] hover:bg-[rgb(var(--pastel-blue-dark))];
+		@apply text-[rgb(var(--pastel-text-primary))] font-medium;
+		@apply rounded-[var(--radius-full)] px-6 py-2.5;
+		@apply transition-all duration-200;
+		@apply border border-[rgb(var(--pastel-blue-dark))]/30;
+	}
+	
+	.pastel-btn-purple {
+		@apply bg-[rgb(var(--pastel-purple))] hover:bg-[rgb(var(--pastel-purple-dark))];
+		@apply text-[rgb(var(--pastel-text-primary))] font-medium;
+		@apply rounded-[var(--radius-full)] px-6 py-2.5;
+		@apply transition-all duration-200;
+		@apply border border-[rgb(var(--pastel-purple-dark))]/30;
+	}
+	
+	/* Badges */
+	.pastel-badge {
+		@apply inline-flex items-center px-3 py-1;
+		@apply rounded-[var(--radius-full)] text-xs font-medium;
+		@apply transition-all duration-200;
+	}
+	
+	.pastel-badge-rose {
+		@apply bg-[rgb(var(--pastel-rose))] text-[rgb(var(--pastel-text-primary))];
+		@apply border border-[rgb(var(--pastel-rose-dark))]/30;
+	}
+	
+	.pastel-badge-blue {
+		@apply bg-[rgb(var(--pastel-blue))] text-[rgb(var(--pastel-text-primary))];
+		@apply border border-[rgb(var(--pastel-blue-dark))]/30;
+	}
+	
+	.pastel-badge-green {
+		@apply bg-[rgb(var(--pastel-green))] text-[rgb(var(--pastel-text-primary))];
+		@apply border border-[rgb(var(--pastel-green-dark))]/30;
+	}
+	
+	.pastel-badge-purple {
+		@apply bg-[rgb(var(--pastel-purple))] text-[rgb(var(--pastel-text-primary))];
+		@apply border border-[rgb(var(--pastel-purple-dark))]/30;
+	}
+	
+	/* Sections */
+	.pastel-section {
+		@apply py-20;
+	}
+	
+	.pastel-section-alt {
+		@apply py-20 bg-white dark:bg-gray-900;
+	}
+	
+	/* Text Styles */
+	.pastel-heading {
+		@apply font-bold text-[rgb(var(--pastel-text-primary))];
+		letter-spacing: -0.025em;
+	}
+	
+	.pastel-text-secondary {
+		@apply text-[rgb(var(--pastel-text-secondary))];
+	}
+	
+	.pastel-text-tertiary {
+		@apply text-[rgb(var(--pastel-text-tertiary))];
+	}
+	
+	/* Gradients */
+	.pastel-gradient-rose {
+		background: linear-gradient(135deg, rgb(var(--pastel-rose-light)), rgb(var(--pastel-rose-dark)));
+	}
+	
+	.pastel-gradient-blue {
+		background: linear-gradient(135deg, rgb(var(--pastel-blue-light)), rgb(var(--pastel-blue-dark)));
+	}
+	
+	.pastel-gradient-purple {
+		background: linear-gradient(135deg, rgb(var(--pastel-purple-light)), rgb(var(--pastel-purple-dark)));
+	}
+	
+	.pastel-gradient-green {
+		background: linear-gradient(135deg, rgb(var(--pastel-green-light)), rgb(var(--pastel-green-dark)));
+	}
+	
+	.pastel-gradient-orange {
+		background: linear-gradient(135deg, rgb(var(--pastel-orange-light)), rgb(var(--pastel-orange-dark)));
+	}
+	
+	.pastel-gradient-mint {
+		background: linear-gradient(135deg, rgb(var(--pastel-mint-light)), rgb(var(--pastel-mint-dark)));
+	}
+	
+	.pastel-gradient-lavender {
+		background: linear-gradient(135deg, rgb(var(--pastel-lavender-light)), rgb(var(--pastel-lavender-dark)));
+	}
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+	
+	.rounded-pastel {
+		border-radius: var(--radius-xl);
+	}
+	
+	.shadow-pastel {
+		box-shadow: var(--shadow-soft);
+	}
+	
+	.shadow-pastel-hover:hover {
+		box-shadow: var(--shadow-medium);
+	}
+}
+
+/* Smooth transitions */
+* {
+	@apply transition-colors duration-200;
+}
+
+/* Override Nuxt UI */
+:root {
+	--ui-primary: rgb(var(--pastel-blue-dark));
+	--ui-gray: rgb(var(--pastel-text-secondary));
+}
