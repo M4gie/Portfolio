@@ -15,6 +15,7 @@ export default defineContentConfig({
         tags: z.array(z.string()),
         hero: z.string(),
         slug: z.string(),
+        timeToRead: z.number(),
       }),
     }),
     project: defineCollection({

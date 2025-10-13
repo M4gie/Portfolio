@@ -11,7 +11,15 @@ export default defineNuxtConfig({
     dirs: ['~/components'],
   },
   devtools: { enabled: true },
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+  },
   css: ['~/assets/css/main.css'],
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth',
+    },
+  },
   content: {
     experimental: { sqliteConnector: 'native' },
     build: {

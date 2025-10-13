@@ -1,42 +1,35 @@
 <template>
-  <div class="min-h-screen bg-[rgb(var(--pastel-background))] dark:bg-gray-950">
+  <div class="flex flex-col p-8 py-12 gap-y-16">
     <!-- Hero Section -->
-    <section
-      id="accueil"
-      class="pastel-section"
-    >
+    <section id="hero">
       <HeroSection />
     </section>
 
-    <!-- About Section -->
-    <section
+    <USeparator
       id="about"
-      class="pastel-section"
-    >
+      class="max-w-2xl self-center"
+    />
+
+    <!-- About Section -->
+    <section>
       <AboutSection />
     </section>
 
-    <!-- Articles Section -->
-    <section
-      id="articles"
-      class="pastel-section-alt"
-    >
-      <ArticleSection />
-    </section>
+    <USeparator
+      id="latest-articles"
+      class="max-w-2xl self-center"
+    />
 
-    <!-- Projects Section -->
-    <section
-      id="projects"
-      class="pastel-section"
-    >
-      <ProjectSection />
+    <!-- Articles Section -->
+    <section>
+      <ArticleSection />
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
 useHead({
-  title: 'Emma Thompson - UX/UI Designer',
+  title: 'Steeven Regnault - UX/UI Designer & Frontend Developer',
   meta: [
     { name: 'description', content: 'Minimalist portfolio of a UX/UI designer passionate about creating intuitive digital experiences' },
   ],

@@ -13,7 +13,7 @@ defineProps<{
 
 <template>
   <div
-    class="pastel-card group cursor-pointer"
+    class="group cursor-pointer"
   >
     <div class="space-y-4">
       <div
@@ -26,18 +26,17 @@ defineProps<{
         />
       </div>
       <div class="space-y-3">
-        <h3 class="text-xl font-semibold pastel-heading group-hover:text-gray-600 transition-colors">
+        <h3 class="text-xl font-semibold group-hover:text-gray-600 transition-colors">
           {{ project.title }}
         </h3>
-        <p class="text-sm pastel-text-secondary">
+        <p class="text-sm">
           {{ project.description }}
         </p>
         <div class="flex flex-wrap gap-2">
           <span
             v-for="tech in project.technologies"
-            :key="tech"
+            :key="tech.name"
             :class="tech.badge"
-            class="pastel-badge"
           >
             {{ tech.name }}
           </span>
