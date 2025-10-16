@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const profilePics = [
-  '/images/me/devfest.jpeg',
-  '/images/me/mountain.jpeg',
+  '/images/me/devfest.webp',
+  '/images/me/mountain.webp',
 ];
 
 const randomIndex = Math.floor(Math.random() * profilePics.length);
