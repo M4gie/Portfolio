@@ -18,6 +18,21 @@ export default defineContentConfig({
         timeToRead: z.number(),
       }),
     }),
+    experience: defineCollection({
+      type: 'content',
+      source: 'experience/*.md',
+      schema: z.object({
+        company: z.string(),
+        logo: z.string(),
+        position: z.string(),
+        location: z.string(),
+        startDate: z.string(),
+        endDate: z.string().nullable(),
+        website: z.string().url(),
+        skills: z.array(z.string()),
+        description: z.string(),
+      }),
+    }),
     project: defineCollection({
       type: 'page',
       source: 'project/*.md',

@@ -54,19 +54,3 @@ export const experienceTags: { [t in Tags]: ExperienceTag } = {
     badge: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
   },
 } as const;
-
-export type Experience = {
-  id: number;
-  period: string;
-  role: string;
-  company: string;
-  logo: string;
-  tags: Tags[];
-};
-
-export const experiences: Experience[] = [
-  { id: 1, period: '2023 - Present', role: 'FullStack Developer', company: 'LeroyMerlin', logo: 'leroy-merlin.svg', tags: ['vue', 'nuxt', 'node', 'typescript', 'docker'] },
-  { id: 2, period: '2021 - 2023', role: 'FullStack Developer', company: 'Decathlon', logo: 'decathlon.svg', tags: ['svelte', 'node', 'typescript'] },
-  { id: 3, period: '2020 - 2022', role: 'FullStack Developer', company: 'sQuiz.gg', logo: 'squiz.png', tags: ['react', 'adonis', 'typescript'] },
-  { id: 3, period: '2020 - 2021', role: 'FullStack Developer', company: 'ReactEurope', logo: 'react-europe.svg', tags: ['react', 'graphql', 'typescript'] },
-] as const;

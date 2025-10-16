@@ -1,10 +1,9 @@
 <script setup lang="ts">
 const slug = useRoute().params.slug;
-const { data: post } = await useAsyncData(`blog-${slug}`, () => {
-  return queryCollection('blog')
-    .where('slug', '=', slug)
-    .first();
-});
+const { data: post } = await useAsyncData(`blog-${slug}`, () => queryCollection('blog')
+  .where('slug', '=', slug)
+  .first(),
+);
 
 // useSeoMeta({
 //   title: home.value?.title,
@@ -17,11 +16,10 @@ const { data: post } = await useAsyncData(`blog-${slug}`, () => {
     v-if="post"
     class="max-w-4xl py-8"
   >
-    <div class="flex justify-between">
+    <div class="flex items-center justify-between mb-4">
       <UButton
         variant="link"
         size="sm"
-        class="mb-4"
         to="/blog"
         icon="i-lucide-arrow-left"
         label="Back to Blog"
@@ -39,7 +37,6 @@ const { data: post } = await useAsyncData(`blog-${slug}`, () => {
     <UButton
       variant="link"
       size="sm"
-      class="mb-4"
       to="/blog"
       icon="i-lucide-arrow-left"
       label="Back to Blog"

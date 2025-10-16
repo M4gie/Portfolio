@@ -1,10 +1,16 @@
 <script setup lang="tsx">
-import { experiences } from '~/data/aboutMe';
+const { data: experiences } = await useAsyncData(`home-page-experiences`, () => queryCollection('experience')
+  .order('startDate', 'DESC')
+  .limit(2)
+  .all(),
+);
+
+const { data: amountOfExperiences } = await useAsyncData(`amount-of-experiences`, () => queryCollection('experience').count());
 </script>
 
 <template>
-  <UContainer>
-    <div class="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+  <div class="space-y-6 md:space-y-8">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-16 mx-auto">
       <div class="space-y-4">
         <h2 class="text-3xl">
           <span class="highlight__blue">
@@ -15,26 +21,34 @@ import { experiences } from '~/data/aboutMe';
           As a UX/UI designer and front-end developer with 6 years of experience, I leverage my Boston University Interactive Design degree to craft user-centered digital experiences. My approach blends creative strategy with design thinking, transforming concepts into functional, purposeful digital products that seamlessly integrate design and technology.
         </p>
       </div>
-      <div class="space-y-6">
+      <div
+        v-if="experiences"
+      >
         <h3 class="text-xl font-semibold">
           Work Experience
         </h3>
-        <div class="space-y-2 flex flex-col justify-end">
+        <div
+          v-for="exp, id in experiences"
+          :key="exp.id"
+          class="flex flex-col items-center"
+        >
           <experience-item
-            v-for="exp in experiences.slice(0, 2)"
-            :key="exp.id"
             :exp="exp"
             class="transition-colors"
           />
-          <div class="text-end">
-            <UButton
-              to="/about"
-            >
-              View all experiences ({{ experiences.length }})
-            </UButton>
-          </div>
+          <USeparator
+            v-if="id < experiences.length - 1"
+            class="w-1/4"
+          />
         </div>
       </div>
     </div>
-  </UContainer>
+    <div class="text-end">
+      <UButton
+        to="/about"
+      >
+        View all experiences ({{ amountOfExperiences }})
+      </UButton>
+    </div>
+  </div>
 </template>

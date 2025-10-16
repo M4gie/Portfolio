@@ -1,30 +1,32 @@
 <script setup lang="tsx">
+import type { ExperienceCollectionItem } from '@nuxt/content';
 import { defineProps } from 'vue';
-import type { Experience } from '~/data/aboutMe';
 
 defineProps<{
-  exp: Experience;
+  exp: ExperienceCollectionItem;
 }>();
 </script>
 
 <template>
   <article
-    class="flex justify-between items-center p-4 dark:text-inverted dark:bg-primary dark:hover:bg-primary/90 rounded shadow hover:shadow-md transition-shadow"
+    class="flex items-center p-4 w-full gap-4"
   >
-    <header class="space-y-1">
-      <p class="text-sm">
-        {{ exp.period }}
-      </p>
-      <h3 class="font-medium">
-        {{ exp.company }}
-      </h3>
-    </header>
-    <div>
+    <div class="dark:bg-primary rounded-full h-14 w-14 flex items-center justify-center">
       <img
-        :src="`/image/company/${exp.logo}`"
+        :src="exp.logo"
         alt=""
-        class="h-8 mx-auto mt-1 object-contain"
+        class="h-10 mx-auto object-contain"
       >
     </div>
+    <header class="space-y-1">
+      <time class="text-sm">
+        {{ new Date(exp.startDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }) }}
+        -
+        {{ exp.endDate ? new Date(exp.endDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }) : 'Present' }}
+      </time>
+      <h3 class="font-medium">
+        {{ exp.position }} at {{ exp.company }}
+      </h3>
+    </header>
   </article>
 </template>

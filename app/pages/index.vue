@@ -1,6 +1,7 @@
 <template>
-  <div class="flex flex-col p-8 py-12 gap-y-16">
-    <!-- Hero Section -->
+  <div
+    class="flex flex-col py-20 gap-y-10 md:p-8 md:py-24 md:gap-y-24 lg:py-32"
+  >
     <section id="hero">
       <HeroSection />
     </section>
@@ -10,7 +11,6 @@
       class="max-w-2xl self-center"
     />
 
-    <!-- About Section -->
     <section>
       <AboutSection />
     </section>
@@ -20,7 +20,6 @@
       class="max-w-2xl self-center"
     />
 
-    <!-- Articles Section -->
     <section>
       <ArticleSection />
     </section>

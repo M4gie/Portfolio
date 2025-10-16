@@ -1,15 +1,38 @@
 <script setup lang="ts">
+import { datadogRum } from '@datadog/browser-rum';
+
+const config = useRuntimeConfig();
+
+onBeforeMount(() => {
+  const { datadogRumApplicationId, datadogRumClientToken, datadogRumEnv } = config.public;
+  if (!datadogRumApplicationId || !datadogRumClientToken || !datadogRumEnv || datadogRumEnv !== 'prod') {
+    return;
+  }
+  datadogRum.init({
+    applicationId: datadogRumApplicationId,
+    clientToken: datadogRumClientToken,
+    site: 'datadoghq.com',
+    service: 'portfolio',
+    env: datadogRumEnv,
+    // Specify a version number to identify the deployed version of your application in Datadog
+    // version: '1.0.0',
+    sessionSampleRate: 100,
+    sessionReplaySampleRate: 5,
+    trackBfcacheViews: true,
+    defaultPrivacyLevel: 'mask-user-input',
+  });
+});
 </script>
 
 <template>
   <UApp>
-    <div class="min-h-screen flex flex-col">
+    <UContainer class="min-h-screen flex flex-col">
       <AppHeader />
       <div class="flex-grow">
         <NuxtPage />
       </div>
       <AppFooter />
-    </div>
+    </UContainer>
   </UApp>
 </template>
 

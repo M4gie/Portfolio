@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <NuxtLink
     :to="`/blog/${article.slug}`"
-    class="p-4 dark:text-inverted dark:bg-primary dark:hover:bg-primary/90 rounded shadow hover:shadow-md transition-shadow"
+    class="p-4 rounded bg-primary/8 hover:bg-primary/12 transition-colors h-full flex flex-col"
   >
     <article class="space-y-4 flex flex-col h-full">
       <h3 class="text-lg font-semibold min-h-[2lh]">

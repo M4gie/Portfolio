@@ -3,9 +3,8 @@ const { data: articles } = await useAsyncData('blog', () => queryCollection('blo
 </script>
 
 <template>
-  <UContainer
-    as="ul"
-    class="max-w-xl py-8 flex flex-col"
+  <ul
+    class="max-w-xl py-10 md:py-20 flex flex-col mx-auto"
   >
     <li
       v-for="article, id in articles"
@@ -13,7 +12,7 @@ const { data: articles } = await useAsyncData('blog', () => queryCollection('blo
     >
       <NuxtLink :to="`blog/${article.slug}`">
         <article>
-          <header class="flex items-center justify-between mb-1 text-sm">
+          <header class="flex items-center justify-between mb-1 text-xs">
             <time>
               {{ new Date(article.createdAt).toLocaleDateString() }}
             </time>
@@ -21,7 +20,7 @@ const { data: articles } = await useAsyncData('blog', () => queryCollection('blo
               {{ article.timeToRead }} min read
             </p>
           </header>
-          <h2 class="text-2xl font-bold mb-2">
+          <h2 class="text-md md:text-xl font-bold mb-2">
             {{ article.title }}
           </h2>
           <p>
@@ -34,5 +33,5 @@ const { data: articles } = await useAsyncData('blog', () => queryCollection('blo
         class="my-6"
       />
     </li>
-  </UContainer>
+  </ul>
 </template>

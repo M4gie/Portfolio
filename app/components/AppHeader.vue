@@ -24,7 +24,7 @@ const activeButtonId = computed(() => buttonList.find(button => route.fullPath.i
 <template>
   <UContainer
     as="header"
-    class="hidden backdrop-blur-xs bg-default/80 sticky top-0 z-50 md:flex justify-between p-3"
+    class="hidden backdrop-blur-xs bg-default/80 sticky top-0 z-50 md:flex justify-between p-3 border-b border-default"
   >
     <div />
     <nav class="flex items-center gap-8">
