@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'Steeven Regnault - UX/UI Designer & Frontend Developer',
+  title: 'Steeven Regnault - FullStack Developer',
   meta: [
     { name: 'description', content: 'Minimalist portfolio of a UX/UI designer passionate about creating intuitive digital experiences' },
   ],

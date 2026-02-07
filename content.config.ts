@@ -19,7 +19,7 @@ export default defineContentConfig({
       }),
     }),
     experience: defineCollection({
-      type: 'content',
+      type: 'data',
       source: 'experience/*.md',
       schema: z.object({
         company: z.string(),
@@ -28,7 +28,7 @@ export default defineContentConfig({
         location: z.string(),
         startDate: z.string(),
         endDate: z.string().nullable(),
-        website: z.string().url(),
+        website: z.url(),
         skills: z.array(z.string()),
         description: z.string(),
       }),

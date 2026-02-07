@@ -54,3 +54,8 @@ export const experienceTags: { [t in Tags]: ExperienceTag } = {
     badge: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
   },
 } as const;
+
+const currentYear = new Date().getFullYear();
+const startingYear = 2021;
+const yearsOfExperience = currentYear - startingYear;
+export const aboutMeDescription = `I'm a fullstack developer based in France with ${yearsOfExperience} years of experience, specialized in crafting meaning, engaging and user-friendly web applications. To craft these experiences, I like to be driven by the human needs and data behind them.`;

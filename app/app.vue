@@ -28,7 +28,7 @@ onBeforeMount(() => {
   <UApp>
     <UContainer class="min-h-screen flex flex-col">
       <AppHeader />
-      <div class="flex-grow">
+      <div class="grow">
         <NuxtPage />
       </div>
       <AppFooter />

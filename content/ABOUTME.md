@@ -1,0 +1,3 @@
+pragmatic
+human
+user driven

@@ -1,53 +1,52 @@
 <script setup lang="ts">
-const colorMode = useColorMode();
-
-const isDark = computed({
-  get() {
-    return colorMode.value === 'dark';
-  },
-  set(_isDark) {
-    colorMode.preference = _isDark ? 'dark' : 'light';
-  },
-});
-
-const buttonList = [
-  { id: 'blog', label: 'Blog', link: '/blog' },
-  { id: 'Latest Articles', label: 'Latest Articles', link: '/#latest-articles' },
-  { id: 'about', label: 'About Me', link: '/#about' },
-  { id: 'home', label: 'Home', link: '/' },
-];
+import type { NavigationMenuItem } from '@nuxt/ui';
 
 const route = useRoute();
-const activeButtonId = computed(() => buttonList.find(button => route.fullPath.includes(button.link))?.id || 'blog');
+
+const items = computed<NavigationMenuItem[]>(() => [{
+  label: 'Home',
+  to: '/',
+  active: route.path === '/',
+},
+{
+  label: 'About Me',
+  to: '/about',
+  active: route.path.includes('/about'),
+}, {
+  label: 'Blog',
+  to: '/blog',
+  active: route.path.includes('/blog'),
+},
+]);
 </script>
 
 <template>
-  <UContainer
-    as="header"
-    class="hidden backdrop-blur-xs bg-default/80 sticky top-0 z-50 md:flex justify-between p-3 border-b border-default"
+  <UHeader
+    mode="drawer"
+    title=""
+    class="backdrop-blur-xs bg-default/80"
   >
-    <div />
-    <nav class="flex items-center gap-8">
-      <UButton
-        v-for="button in buttonList.toReversed()"
-        :key="button.id"
-        variant="link"
-        size="sm"
-        class="font-medium"
-        :class="{ 'underline decoration-2 underline-offset-3': activeButtonId === button.id }"
-        :to="button.link"
-        :label="button.label"
+    <UNavigationMenu
+      :items="items"
+      highlight
+      color="primary"
+      highlight-color="primary"
+      :ui="{
+        link: 'py-0 after:-bottom-0.5',
+        item: 'py-0',
+        list: 'gap-6',
+
+      }"
+    />
+    <template #right>
+      <UColorModeButton />
+    </template>
+    <template #body>
+      <UNavigationMenu
+        :items="items"
+        orientation="vertical"
+        class="-mx-2.5"
       />
-    </nav>
-    <ClientOnly v-if="!colorMode?.forced">
-      <UButton
-        :icon="isDark ? 'i-lucide-moon' : 'i-lucide-sun'"
-        color="neutral"
-        variant="ghost"
-        size="sm"
-        :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
-        @click="isDark = !isDark"
-      />
-    </ClientOnly>
-  </UContainer>
+    </template>
+  </UHeader>
 </template>

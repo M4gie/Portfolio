@@ -17,7 +17,9 @@ const selectedProfilePic = profilePics[randomIndex];
         preset="avatar"
         loading="lazy"
         :src="selectedProfilePic"
-        sizes="64px md:96px"
+        :custom="false"
+        width="96"
+        height="96"
         class="ring-2 ring-offset-3 rounded-full"
       />
     </div>
@@ -26,8 +28,7 @@ const selectedProfilePic = profilePics[randomIndex];
         <span class="hidden md:inline">👋 I'm </span><span class="highlight__green">Steeven Regnault</span><br>FullStack Developer
       </p>
       <p class="text-lg/6 md:text-lg/6 max-w-2xl mx-auto text-secondary">
-        I craft intuitive digital experiences where design meets functionality.<br>
-        Based in Boston, bringing ideas to life through code and creativity.
+        I craft intuitive digital experiences where design meets functionality.
       </p>
     </div>
   </div>

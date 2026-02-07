@@ -7,7 +7,7 @@ export default defineTransformer({
   transform(file) {
     return {
       ...file,
-      slug: slugify(file.title as string, {
+      slug: slugify(file.company as string, {
         lower: true,
         trim: true,
       }),

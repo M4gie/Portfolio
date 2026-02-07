@@ -1,4 +1,6 @@
 <script setup lang="tsx">
+import { aboutMeDescription } from '~/data/aboutMe';
+
 const { data: experiences } = await useAsyncData(`home-page-experiences`, () => queryCollection('experience')
   .order('startDate', 'DESC')
   .limit(2)
@@ -18,7 +20,7 @@ const { data: amountOfExperiences } = await useAsyncData(`amount-of-experiences`
           </span>
         </h2>
         <p class="leading-relaxed">
-          As a UX/UI designer and front-end developer with 6 years of experience, I leverage my Boston University Interactive Design degree to craft user-centered digital experiences. My approach blends creative strategy with design thinking, transforming concepts into functional, purposeful digital products that seamlessly integrate design and technology.
+          {{ aboutMeDescription }}
         </p>
       </div>
       <div
